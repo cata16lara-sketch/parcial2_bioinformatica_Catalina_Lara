@@ -1,13 +1,13 @@
 # parcial2_bioinformatica_Catalina_Lara
 Parcial 2
 # Punto 1: Calidad y Ensamblaje Genómico *De Novo*
-se realizó el análisis de calidad de las lecturas crudas y el ensamblaje *de novo* del genoma de _Gasteracantha cancriformis_. 
+Se realizó el análisis de calidad de las lecturas crudas y el ensamblaje *de novo* del genoma de _Gasteracantha cancriformis_. 
 Evaluación de calidad de las lecturas
 
 Se evaluó la calidad de las secuencias utilizando **FastQC**, y el código utilizado fue :
 ```bash
 fastqc *.fastq.gz
-
+# Archivos FASTQ
 Por cada archivo FASTQ se generaron los siguientes reportes:
 # SRR8528336_1_fastqc.html
 # SRR8528336_1_fastqc.zip
