@@ -1,16 +1,23 @@
 # parcial2_bioinformatica_Catalina_Lara
 Parcial 2
-# PRIMER PUNTO (1)
-Para evaluar la calidad de las lecturas crudas obtenidas, se utilizó el software FastQC. 
-El comando utilizado es:
-# fastqc *.fastq.gz
+# Punto 1: Calidad y Ensamblaje Genómico *De Novo*
+se realizó el análisis de calidad de las lecturas crudas y el ensamblaje *de novo* del genoma de _Gasteracantha cancriformis_. 
+Evaluación de calidad de las lecturas
+
+Se evaluó la calidad de las secuencias utilizando **FastQC**, y el código utilizado fue :
+```bash
+fastqc *.fastq.gz
+
 Por cada archivo FASTQ se generaron los siguientes reportes:
 # SRR8528336_1_fastqc.html
 # SRR8528336_1_fastqc.zip
 # SRR8528336_2_fastqc.html
 # SRR8528336_2_fastqc.zip
+
 Se descargaron los archivos .html
 file://wsl$/Ubuntu/root/SRR8528336_1_fastqc.html
+<img width="368" height="240" alt="image" src="https://github.com/user-attachments/assets/c58507ec-9a31-459a-8860-d3a982fac0bd" />
+
 file://wsl$/Ubuntu/root/SRR8528336_2_fastqc.html
 Para evaluar la calidad de las lecturas se utilizó el software FastQC.
 A partir de este análisis se observó que los archivos SRR8528336_1.fastq.gz y SRR8528336_2.fastq.gz contienen cada uno 500,000 secuencias, 
