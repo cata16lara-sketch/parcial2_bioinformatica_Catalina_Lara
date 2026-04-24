@@ -59,7 +59,7 @@ El comando utilizado fue:
 /datacnmat01/ciencias/appsbio/conda/pkgs/quast-5.2.0-py39pl5321h4e691d4_3/opt/quast-5.2.0/quast.py scaffolds.fasta -o quast_results
 ```
 Resultados 
-![Imagen estadisticasq](estadisticasq.png)
+![Imagen estadisticasq](estadísticasq.jpg)
 Interpretación:
 El ensamblaje obtenido presenta un N50 de 1329 bp y un L50 de 454, lo que indica que el genoma se encuentra fragmentado en múltiples contigs pequeños. Esto sugiere una baja contigüidad.
 
@@ -85,7 +85,7 @@ Las secuencias proteicas descargadas se unieron en un único archivo:
 cat NM_079118.3_protein.fasta NM_079632.4_protein.fasta XM_016049029.1_protein.fasta XM_016049030.1_protein.fasta > obp_proteins.fasta
 ## Limpieza de encabezados (expresiones regulares)
 Se utilizó el editor Atom para modificar los encabezados de las secuencias mediante expresiones regulares, dejando únicamente el identificador de acceso y el nombre de la especie.
-![Imagen limpieza](atom.png)
+![Imagen limpieza](atom.jpg)
 ##Búsqueda de similitud (BLAST)
 Se realizó una búsqueda utilizando tblastn, comparando secuencias proteicas contra la base de datos de nucleótidos generada a partir del ensamblaje. Con el siguiente código :
 ```bash
