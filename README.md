@@ -7,6 +7,7 @@ Evaluación de calidad de las lecturas
 Se evaluó la calidad de las secuencias utilizando **FastQC**, y el código utilizado fue :
 ```bash
 fastqc *.fastq.gz
+---
 # Archivos FASTQ
 Por cada archivo FASTQ se generaron los siguientes reportes:
 # SRR8528336_1_fastqc.html
