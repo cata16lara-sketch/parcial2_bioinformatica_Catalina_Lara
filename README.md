@@ -59,7 +59,7 @@ El comando utilizado fue:
 /datacnmat01/ciencias/appsbio/conda/pkgs/quast-5.2.0-py39pl5321h4e691d4_3/opt/quast-5.2.0/quast.py scaffolds.fasta -o quast_results
 ```
 Resultados 
-![Imagen estadisticasq](estadísticasq.jpg)
+![Imagen estadisticasq](estadisticasq.jpg)
 Interpretación:
 El ensamblaje obtenido presenta un N50 de 1329 bp y un L50 de 454, lo que indica que el genoma se encuentra fragmentado en múltiples contigs pequeños. Esto sugiere una baja contigüidad.
 
@@ -91,7 +91,7 @@ Se realizó una búsqueda utilizando tblastn, comparando secuencias proteicas co
 ```bash
 tblastn -query obp_proteins_ex.fasta -db contigs_db -out resultados_tblastn.out -outfmt 6
 ```
-![Resultados blast](tblast.png)
+![Resultados blast](tblast.jpg)
 ## 🧠 Interpretación de resultados BLAST
 
 A partir de los resultados obtenidos mediante `tblastn`, se identificaron múltiples alineamientos entre las proteínas de referencia y los contigs del ensamblaje. Sin embargo, no todos los hits tienen la misma relevancia biológica, por lo que se evaluaron principalmente los parámetros de **E-value**, **porcentaje de identidad** y **longitud de alineamiento**.
@@ -123,11 +123,11 @@ Para la visualización de los datos se utilizó la librería ggplot2 en R, que p
 
 ###  Abundancia relativa por altitud
 
-![Gráfica altitud](images/grafica_altitud.png)
+![Gráfica altitud](grafica_altitud.png)
 
 ###  Supervivencia en función de la temperatura
 
-![Gráfica temperatura](images/grafica_temperatura.png)
+![Gráfica temperatura](grafica_temperatura.png)
 
 ##  Interpretación
 
