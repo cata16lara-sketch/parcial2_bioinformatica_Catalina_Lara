@@ -10,16 +10,17 @@ fastqc *.fastq.gz
 ```
 # Archivos FASTQ
 Por cada archivo FASTQ se generaron los siguientes reportes:
-# SRR8528336_1_fastqc.html
-# SRR8528336_1_fastqc.zip
-# SRR8528336_2_fastqc.html
-# SRR8528336_2_fastqc.zip
-
+```bash
+SRR8528336_1_fastqc.html
+SRR8528336_1_fastqc.zip
+SRR8528336_2_fastqc.html
+SRR8528336_2_fastqc.zip
+```
 Se descargaron los archivos .html
-# SRR8528336_1_fastqc.html
+SRR8528336_1_fastqc.html
 ![Imagen estadisticas](estadisticas_1.png)
 ![Grafica estadisticas](grafica_1.png)
-# SRR8528336_2_fastqc.html
+SRR8528336_2_fastqc.html
 ![Imagen estadisticas](estadisticas_1.png)
 file://wsl$/Ubuntu/root/SRR8528336_2_fastqc.html
 ![Imagen estadisticas2](estadisticas_2.png)
@@ -33,7 +34,7 @@ lo que indica que las lecturas son confiables.También se observa que la calidad
 
 # PRIMER PUNTO (2)
 Se Utilizo SPAdes para realizar el ensamblaje de novo utilizando los reads, en un sbatch con este código:
-
+```bash
 #!/bin/sh
 #SBATCH -p normal #Particion (cola)
 #SBATCH -N 1 # Numero de nodos
@@ -46,11 +47,11 @@ Se Utilizo SPAdes para realizar el ensamblaje de novo utilizando los reads, en u
 
 module load spades
 spades.by -1 SRR8528336_1.fastq.gz -2 SRR8528336_2.fastq.gz -o ensamblaje_spades
-
+```
 #Las métricas del ensamblaje fueron calculadas utilizando QUAST. Con el siguiente código:
- 
+ ```bash
 quast.py scaffolds.fasta -o quast_results
-
+```
 # PRIMER PUNTO (3)
 Una vez finalizado el ensamblaje de novo, se calcularon las estadísticas del ensamblaje utilizando el software QUAST, a partir del archivo de scaffolds generado por SPAdes.
 El comando utilizado fue:
@@ -60,7 +61,7 @@ Resultados
 Interpretación:
 El ensamblaje obtenido presenta un N50 de 1329 bp y un L50 de 454, lo que indica que el genoma se encuentra fragmentado en múltiples contigs pequeños. Esto sugiere una baja contigüidad.
 
-#SEGUNDO PUNTO
+# SEGUNDO PUNTO
 En este punto se buscó identificar un gen ortólogo al *ommochrome-binding protein (OBP)* en el genoma ensamblado de _Gasteracantha cancriformis_.
 
 Se obtuvieron secuencias proteicas relacionadas con el gen OBP a partir de los siguientes códigos de acceso:
@@ -74,18 +75,20 @@ Las secuencias fueron descargadas en formato FASTA desde NCBI.
 ## Construcción de base de datos local
 A partir del archivo `contigs.fasta` generado en el ensamblaje, se construyó una base de datos de nucleótidos utilizando BLAST.
 ### Código utilizado
+```bash
 makeblastdb -in contigs.fasta -dbtype nucl -out contigs_db
+```
 ## Concatenación de secuencias
 Las secuencias proteicas descargadas se unieron en un único archivo:
 cat NM_079118.3_protein.fasta NM_079632.4_protein.fasta XM_016049029.1_protein.fasta XM_016049030.1_protein.fasta > obp_proteins.fasta
-##Limpieza de encabezados (expresiones regulares)
+## Limpieza de encabezados (expresiones regulares)
 Se utilizó el editor Atom para modificar los encabezados de las secuencias mediante expresiones regulares, dejando únicamente el identificador de acceso y el nombre de la especie.
 ![Imagen limpieza](atom.png)
 ##Búsqueda de similitud (BLAST)
 Se realizó una búsqueda utilizando tblastn, comparando secuencias proteicas contra la base de datos de nucleótidos generada a partir del ensamblaje. Con el siguiente código :
-
+```bash
 tblastn -query obp_proteins_ex.fasta -db contigs_db -out resultados_tblastn.out -outfmt 6
-
+```
 ![Resultados blast](tblast.png)
 ## 🧠 Interpretación de resultados BLAST
 
@@ -109,12 +112,10 @@ Relación entre Altitud, Temperatura y Morfos de Color
 
 ## Metodología
 
-Para la visualización de los datos se utilizó la librería **ggplot2** en R, que permite generar gráficos de alta calidad y personalizables.
+Para la visualización de los datos se utilizó la librería ggplot2 en R, que permite generar gráficos de alta calidad y personalizables.
 
-- Para la gráfica de abundancia relativa por altitud se empleó `geom_area()`, lo que permitió representar la **densidad apilada** de los diferentes morfos de color a lo largo del gradiente altitudinal.
+- Para la gráfica de abundancia relativa por altitud se empleó `geom_area()`, lo que permitió representar la densidad apilada de los diferentes morfos de color a lo largo del gradiente altitudinal.
 - Para la relación entre temperatura y supervivencia se utilizó `geom_point()`, facilitando la visualización de la dispersión de los datos y las diferencias entre fenotipos.
-
----
 
 ##  Resultados
 
