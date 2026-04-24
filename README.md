@@ -55,7 +55,9 @@ quast.py scaffolds.fasta -o quast_results
 # PRIMER PUNTO (3)
 Una vez finalizado el ensamblaje de novo, se calcularon las estadísticas del ensamblaje utilizando el software QUAST, a partir del archivo de scaffolds generado por SPAdes.
 El comando utilizado fue:
-# /datacnmat01/ciencias/appsbio/conda/pkgs/quast-5.2.0-py39pl5321h4e691d4_3/opt/quast-5.2.0/quast.py scaffolds.fasta -o quast_results
+```bash
+/datacnmat01/ciencias/appsbio/conda/pkgs/quast-5.2.0-py39pl5321h4e691d4_3/opt/quast-5.2.0/quast.py scaffolds.fasta -o quast_results
+```
 Resultados 
 ![Imagen estadisticasq](estadisticasq.png)
 Interpretación:
